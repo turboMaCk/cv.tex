@@ -1,0 +1,157 @@
+\documentclass[9pt]{article}
+
+% PACKAGES
+
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{fontspec}
+\usepackage{blindtext}
+\usepackage{titling}
+\usepackage[margin=2cm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+
+% FONTS
+
+\newfontfamily\Lato{lato}[
+  Path = fonts/,
+  UprightFont = *-regular ,
+  BoldFont = *-bold ,
+  Extension = .ttf ]
+
+\newfontfamily\FAFR{fontawesome}[
+  Path = fonts/,
+  UprightFont = *-regular ,
+  Extension = .otf ]
+
+\newfontfamily\FAFS{fontawesome-solid}[
+  Path = fonts/,
+  UprightFont = * ,
+  Extension = .otf ]
+
+\newfontfamily\FAB{fontawesome-brands}[
+  Path = fonts/,
+  UprightFont = *-regular ,
+  Extension = .otf ]
+\setmainfont{Lato}
+
+% ICONS
+\def\faEmail{{\FAFR \symbol{"F0E0}}} % Emai=l
+\def\faPhone{\FAFS \symbol{"F095}} % Phone
+\def\faLinkedin{\FAB \symbol{"F08C}} % Linkedin
+\def\faGithub{\FAB \symbol{"F09B}} % Github
+\def\faStackOverflow{\FAB \symbol{"F16C}} % StackOverflow
+
+% STYLES
+\titleformat{\section}
+            {\large\bfseries}
+            {}
+            {0pt}
+            {}
+
+\titleformat{\subsection}
+            {\large\bfseries}
+            {}
+            {0pt}
+            {}
+
+\titleformat{\subsubsection}
+            {\bfseries}
+            {}
+            {0pt}
+            {}
+
+\renewcommand{\maketitle}{
+
+  \setlength\tabcolsep{-15pt}
+  \begin{tabular}{cc}
+    \begin{minipage}[t]{0.65\textwidth}
+      \colorbox{black}{
+        {\Huge \textbf {\textcolor{white}{\MakeUppercase{Marek}}}}
+      }
+
+      \vspace{0.2cm}
+
+      \colorbox{black}{
+        {\huge \textbf {\textcolor{white}{\MakeUppercase{Fajkus}}}}
+      }
+
+      \vspace{0.4cm}
+
+      {\large \thetitle}
+    \end{minipage}
+
+    \begin{minipage}[t]{0.35\textwidth}
+      \vspace{-\baselineskip} % Required for vertically aligning minipages
+      \begin{itemize}
+        \itemsep0em
+      \item \href{mailto:marek.faj@gmail.com}{
+        \colorbox{black}{\textcolor{white}{\faEmail}} { marek.faj@gmail.com}
+      }
+      \item \href{https://github.com/turbomack}{
+        \colorbox{black}{\textcolor{white}{\faGithub}} { turboMaCk}
+      }
+      \item \href{https://www.linkedin.com/in/marek-fajkus-01129350/}{
+        \colorbox{black}{\textcolor{white}{\faLinkedin}} { marek-fajkus-01129350}
+      }
+      \end{itemize}
+    \end{minipage}
+  \end{tabular}
+
+  \vspace{0.5cm}
+}
+
+\renewcommand{\labelitemi}{}
+
+\setlength\columnsep{20pt}
+\setlength{\parskip}{2em}
+
+% DOCUMENT
+
+\begin{document}
+
+\title{Web App Developer}
+\author{Marek Fajkus}
+\maketitle
+
+\begin{tabular}{lp{3cm}rr}
+    \begin{minipage}[l]{0.5\textwidth}
+      \section{Introduction}
+      \blindtext
+    \end{minipage}
+    & &
+    \begin{minipage}[r]{0.30\textwidth}
+      \begin{itemize}
+        \itemsep0em
+        \item \colorbox{black}{\textcolor{white}{Elm}}
+        \item \colorbox{black}{\textcolor{white}{JavaScript}}
+        \item \colorbox{black}{\textcolor{white}{TypeScript}}
+        \item \colorbox{black}{\textcolor{white}{Haskell}}
+        \item \colorbox{black}{\textcolor{white}{Nix}}
+        \item \colorbox{black}{\textcolor{white}{PureScript}}
+        \item \colorbox{black}{\textcolor{white}{OCaml}}
+      \end{itemize}
+    \end{minipage} &
+    \begin{minipage}[r]{0.25\textwidth}
+      \begin{itemize}
+        \itemsep0em
+        \item \colorbox{black}{\textcolor{white}{Ruby}}
+        \item \colorbox{black}{\textcolor{white}{Rust}}
+        \item \colorbox{black}{\textcolor{white}{Go}}
+        \item \colorbox{black}{\textcolor{white}{Python}}
+        \item \colorbox{black}{\textcolor{white}{C}}
+        \item \colorbox{black}{\textcolor{white}{CSS}}
+        \item \colorbox{black}{\textcolor{white}{HTML}}
+      \end{itemize}
+    \end{minipage} \\
+\end{tabular}
+
+  %% \begin{multicols*}{2}
+  %%   \section{Introduction}
+  %%     \blindtext[1]
+
+  %%   \subsection{Languages}
+  %%   Elm, Haskell, JavaScript, Ruby
+  %% \end{multicols*}
+
+\end{document}
