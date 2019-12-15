@@ -12,6 +12,12 @@
 \usepackage{hyperref}
 \usepackage{tabularx}
 \usepackage{tikz}
+\usepackage{longtable}
+
+% CUSTOM VARs
+
+\def\firstname{Marek}
+\def\lastname{Fajkus}
 
 % FONTS
 
@@ -38,6 +44,7 @@
 \setmainfont{Lato}
 
 % ICONS
+
 \def\faEmail{{\FAFR \symbol{"F0E0}}} % Email
 \def\faPhone{\FAFS \symbol{"F095}} % Phone
 \def\faLinkedin{\FAB \symbol{"F08C}} % Linkedin
@@ -47,7 +54,31 @@
 \def\faStarFull{\FAFS \symbol{"F005}} % StackOverflow
 \def\faStarHalf{\FAFS \symbol{"F5C0}} % StackOverflow
 
+% disable page numbers
+\pagenumbering{gobble}
+
+%  disable parskip (automatic spacing around sections)
+\setlength{\parskip}{0pt}
+
+% disable auto indenting from parent
+\setlength\parindent{0pt}
+
+% disable default list points
+\renewcommand{\labelitemi}{}
+
+% long table
+\setlength\LTleft\parindent
+\setlength\LTright\parindent
+
+% remove tab separators
+\setlength\tabcolsep{0pt}
+
+% set tabular column separation
+\setlength\columnsep{20pt}
+\setlength{\tabcolsep}{0pt}
+
 % STYLES
+
 \titleformat{\section}
             {\large\bfseries\itshape}
             {}
@@ -55,40 +86,36 @@
             {}
             [\vspace{0.2cm}\color{ProcessBlue}{\titlerule[0.8pt]}]
 
-\titlespacing{\section}{0pt}{1em}{1em}
+\titlespacing{\section}{0pt}{1em}{1.2em}
 
 \titleformat{\subsection}
             {\large\bfseries}
             {}
             {0pt}
             {}
-%% \titlespacing{\subsection}{0pt}{\parskip}{-1em}
 
 \titleformat{\subsubsection}
-            {\bfseries}
+            {\bfseries\color{ProcessBlue}}
             {}
             {0pt}
             {}
-%% \titlespacing{\subsubsection}{0pt}{-\parskip}{-\parskip}
+
+% TITLE
 
 \renewcommand{\maketitle}{
-
-  \setlength\tabcolsep{-15pt}
-  \begin{tabular}{cc}
+  \begin{tabular}{@{}l l}
     \begin{minipage}[t]{0.65\textwidth}
-      \colorbox{black}{
-        {\Huge \textbf {\textcolor{white}{\MakeUppercase{Marek}}}}
-      }
+      {\Huge \textbf {\MakeUppercase{\firstname}}}
 
       \vspace{0.2cm}
 
       \colorbox{black}{
-        {\huge \textbf {\textcolor{white}{\MakeUppercase{Fajkus}}}}
+        {\huge \textbf {\textcolor{white}{\MakeUppercase{\lastname}}}}
       }
 
       \vspace{0.4cm}
 
-      {\large \thetitle}
+      {\LARGE\emph\thetitle}
     \end{minipage}
 
     \begin{minipage}[t]{0.35\textwidth}
@@ -112,27 +139,34 @@
   \vspace{0.5cm}
 }
 
-\renewcommand{\labelitemi}{}
-\setlength\columnsep{20pt}
-\pagenumbering{gobble}
-\setlength{\parskip}{0pt}
+% JOB ENTRY ITEM
+
+\newcommand{\entry}[4]{% First argument for the leftmost date(s) text, second is for the bold entry heading, third is for the bold right-aligned entry qualifier and the fourth is for the entry description
+	\parbox[t]{0.195\textwidth}{
+		\bfseries #1 % Leftmost entry date(s) text
+	}%
+	&\parbox[t]{0.805\textwidth}{
+		\textbf{\textcolor{ProcessBlue}{#2}}% Entry heading text
+		\hfill% Horizontal whitespace
+    \vspace{0.5em}
+		{\footnotesize \textbf{\textcolor{black}{#3}}}\\% Right-aligned entry qualifier text
+		#4 % Entry description text
+	}\\\\}
 
 % DOCUMENT
 
 \begin{document}
 \title{Web App Developer}
-\author{Marek Fajkus}
 \maketitle
-
 
 \section{Introduction}
 
-\begin{tabular}{lp{3cm}r}
-    \begin{minipage}[l]{0.55\textwidth}
+\begin{tabular}{@{}l@{\hskip 10pt}r}
+    \begin{minipage}[l]{0.6\textwidth}
       \blindtext
     \end{minipage}
-    & &
-    \begin{minipage}[r]{0.40\textwidth}
+    &
+    \begin{minipage}[r]{0.39\textwidth}
       \setlength\tabcolsep{5pt}
       \begin{tabularx}{\textwidth}{Xr}
           \colorbox{ProcessBlue}{\textcolor{white}{Functional Programming}} &
@@ -170,21 +204,10 @@
     \end{minipage} \\
 \end{tabular}
 
-  %% - Elm
-  %% - JavaScript
-  %% - Haskell
-  %% - PureScript
-  %% - OCaml
-  %% - Ruby
-  %% - Python
-  %% - Nix/NixOS
-  %% - SQL
-  %% - Go
-  %% - Rust
-  %% - C
+\vspace{0.5cm}
 
-\begin{minipage}[left=-1cm]{1.2\textwidth}
-  \hskip -0.7cm%
+\begin{minipage}[]{\textwidth}
+  \hskip -0.2cm
   \begin{tikzpicture}
   \fill[black] (0.2,2) circle (0.4cm) node []{\color{white}C};
   \fill[ProcessBlue] (1.7,2) circle (0.8cm) node []{\color{white}Haskell};
@@ -201,33 +224,117 @@
   \end{tikzpicture}
 \end{minipage}
 
+\vspace{0.5cm}
+
 \section{Experience}
 
-\subsection{GlobalWebIndex}
-GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-working 100\& remotly.
+\begin{longtable}{@{}ll@{}}
+  \entry{01/2017 -- 11/2019}{Team Lead: The Platform (front-end)}{GlobalWebIndex, London GB}{
+    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+    working 100\& remotly.
 
-\subsubsection{Team Lead}
-GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-working 100\& remotly.
+    \vspace{0.5em}
 
-\subsubsection{Fullstack Developer}
-GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-working 100\& remotly.
+    \bfseries Elm
+    \bfseries TypeScrip
+    \bfseries Go
+    \bfseries Ruby
+    \bfseries JavaScript
+    \bfseries React.js
+    \bfseries d3.js
+    \bfseries node.js
+  }
 
-\subsection{Startup Bootstraping Fullstack dev}
-GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-working 100\& remotly.
+  \entry{06/2015 -- 12/2016}{Senior FullStack Developer: The Core}{GlobalWebIndex, London GB}{
+    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+    working 100\& remotly.
 
-\subsection{Madeo Interactive}
+    \vspace{0.5em}
 
-\subsubsection{Front-End Lead}
+    \bfseries JavaScript
+    \bfseries Ruby
+    \bfseries Ember.js
+    \bfseries d3.js
+    \bfseries node.js
+  }
 
-\subsubsection{Front-End Developer}
+  \entry{12/2014 -- 05/2015}{Web Developer Developer}{Self Employed, Prague CZ}{
+    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+    working 100\& remotly.
 
-\subsection{Freelance Web Development}
+    \vspace{0.5em}
 
-\subsection{WebCzech}
+    \bfseries JavaScript
+    \bfseries Ruby
+    \bfseries Ember.js
+    \bfseries d3.js
+    \bfseries node.js
+  }
+
+  \entry{04/2014 -- 11/2014}{Lead Front-End Developer}{Madeo Interactive, Zlin CZ}{
+    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+    working 100\& remotly.
+
+    \vspace{0.5em}
+
+    \bfseries JavaScript
+    \bfseries Ruby
+    \bfseries CoffeeScript
+    \bfseries PHP
+    \bfseries Ember.js
+    \bfseries d3.js
+    \bfseries JQuery
+  }
+
+  \entry{11/2013 -- 03/2014}{Senior Front End Developer}{Madeo Interactive, Zlin CZ}{
+    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+    working 100\& remotly.
+
+    \vspace{0.5em}
+
+    \bfseries JavaScript
+    \bfseries Ruby
+    \bfseries CoffeeScript
+    \bfseries PHP
+    \bfseries Ember.js
+    \bfseries JQuery
+  }
+
+  \entry{03/2012 -- 10/2014}{Independet FullStack WebDeveloper / Designer}{Self Employed, Brno CZ}{
+    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+    working 100\& remotly.
+
+    \vspace{0.5em}
+
+    \bfseries JavaScript
+    \bfseries PHP
+    \bfseries JQuery
+  }
+
+  \entry{06/2012 -- 02/2012}{Senior WebDesigner WebDeveloper}{WebCzech, Brno CZ}{
+    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+    working 100\& remotly.
+
+    \vspace{0.5em}
+
+    \bfseries JavaScript
+    \bfseries PHP
+    \bfseries JQuery
+    \bfseries Adobe Flash
+  }
+
+  \entry{11/2010 -- 05/2011}{Junior WebDesigner / WebDeveloper}{WebCzech, Brno CZ}{
+    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+    working 100\& remotly.
+
+    \vspace{0.5em}
+
+    \bfseries JavaScript
+    \bfseries PHP
+    \bfseries JQuery
+    \bfseries Adobe Flash
+  }
+\end{longtable}
 
 \section{Education}
 
