@@ -10,6 +10,8 @@
 \usepackage[margin=2cm]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{tikz}
 
 % FONTS
 
@@ -36,30 +38,38 @@
 \setmainfont{Lato}
 
 % ICONS
-\def\faEmail{{\FAFR \symbol{"F0E0}}} % Emai=l
+\def\faEmail{{\FAFR \symbol{"F0E0}}} % Email
 \def\faPhone{\FAFS \symbol{"F095}} % Phone
 \def\faLinkedin{\FAB \symbol{"F08C}} % Linkedin
 \def\faGithub{\FAB \symbol{"F09B}} % Github
 \def\faStackOverflow{\FAB \symbol{"F16C}} % StackOverflow
+\def\faStarEmpty{\FAFR \symbol{"F005}} % StackOverflow
+\def\faStarFull{\FAFS \symbol{"F005}} % StackOverflow
+\def\faStarHalf{\FAFS \symbol{"F5C0}} % StackOverflow
 
 % STYLES
 \titleformat{\section}
-            {\large\bfseries}
+            {\large\bfseries\itshape}
             {}
             {0pt}
             {}
+            [\vspace{0.2cm}\color{ProcessBlue}{\titlerule[0.8pt]}]
+
+\titlespacing{\section}{0pt}{1em}{1em}
 
 \titleformat{\subsection}
             {\large\bfseries}
             {}
             {0pt}
             {}
+%% \titlespacing{\subsection}{0pt}{\parskip}{-1em}
 
 \titleformat{\subsubsection}
             {\bfseries}
             {}
             {0pt}
             {}
+%% \titlespacing{\subsubsection}{0pt}{-\parskip}{-\parskip}
 
 \renewcommand{\maketitle}{
 
@@ -85,8 +95,9 @@
       \vspace{-\baselineskip} % Required for vertically aligning minipages
       \begin{itemize}
         \itemsep0em
+      \vspace{-0.5cm}
       \item \href{mailto:marek.faj@gmail.com}{
-        \colorbox{black}{\textcolor{white}{\faEmail}} { marek.faj@gmail.com}
+        \colorbox{ProcessBlue}{\textcolor{white}{\faEmail}} { \textcolor{ProcessBlue}{marek.faj@gmail.com}}
       }
       \item \href{https://github.com/turbomack}{
         \colorbox{black}{\textcolor{white}{\faGithub}} { turboMaCk}
@@ -102,56 +113,132 @@
 }
 
 \renewcommand{\labelitemi}{}
-
 \setlength\columnsep{20pt}
-\setlength{\parskip}{2em}
+\pagenumbering{gobble}
+\setlength{\parskip}{0pt}
 
 % DOCUMENT
 
 \begin{document}
-
 \title{Web App Developer}
 \author{Marek Fajkus}
 \maketitle
 
-\begin{tabular}{lp{3cm}rr}
-    \begin{minipage}[l]{0.5\textwidth}
-      \section{Introduction}
+
+\section{Introduction}
+
+\begin{tabular}{lp{3cm}r}
+    \begin{minipage}[l]{0.55\textwidth}
       \blindtext
     \end{minipage}
     & &
-    \begin{minipage}[r]{0.30\textwidth}
-      \begin{itemize}
-        \itemsep0em
-        \item \colorbox{black}{\textcolor{white}{Elm}}
-        \item \colorbox{black}{\textcolor{white}{JavaScript}}
-        \item \colorbox{black}{\textcolor{white}{TypeScript}}
-        \item \colorbox{black}{\textcolor{white}{Haskell}}
-        \item \colorbox{black}{\textcolor{white}{Nix}}
-        \item \colorbox{black}{\textcolor{white}{PureScript}}
-        \item \colorbox{black}{\textcolor{white}{OCaml}}
-      \end{itemize}
-    \end{minipage} &
-    \begin{minipage}[r]{0.25\textwidth}
-      \begin{itemize}
-        \itemsep0em
-        \item \colorbox{black}{\textcolor{white}{Ruby}}
-        \item \colorbox{black}{\textcolor{white}{Rust}}
-        \item \colorbox{black}{\textcolor{white}{Go}}
-        \item \colorbox{black}{\textcolor{white}{Python}}
-        \item \colorbox{black}{\textcolor{white}{C}}
-        \item \colorbox{black}{\textcolor{white}{CSS}}
-        \item \colorbox{black}{\textcolor{white}{HTML}}
-      \end{itemize}
+    \begin{minipage}[r]{0.40\textwidth}
+      \setlength\tabcolsep{5pt}
+      \begin{tabularx}{\textwidth}{Xr}
+          \colorbox{ProcessBlue}{\textcolor{white}{Functional Programming}} &
+          \vspace{0.2cm}
+          \textcolor{ProcessBlue}{\faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty} \\
+
+          \colorbox{ProcessBlue}{\textcolor{white}{Web Technologies}} &
+          \vspace{0.2cm}
+          \textcolor{ProcessBlue}{\faStarFull \faStarFull \faStarFull \faStarFull \faStarEmpty} \\
+
+          \colorbox{black}{\textcolor{white}{Web Services}} &
+          \vspace{0.2cm}
+          \faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty \\
+
+          \colorbox{black}{\textcolor{white}{Devops}} &
+          \vspace{0.2cm}
+          \faStarFull \faStarFull \faStarHalf \faStarEmpty \faStarEmpty \\
+
+          \colorbox{black}{\textcolor{white}{Data Visualization}} &
+          \vspace{0.2cm}
+          \faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty \\
+
+          \colorbox{black}{\textcolor{white}{Interface Design}} &
+          \vspace{0.2cm}
+          \faStarFull \faStarFull \faStarHalf \faStarEmpty \faStarEmpty \\
+
+          \colorbox{black}{\textcolor{white}{Automatization}} &
+          \vspace{0.2cm}
+          \faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty \\
+
+          \colorbox{black}{\textcolor{white}{Leadership}} &
+          \vspace{0.2cm}
+          \faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty \\
+      \end{tabularx}
     \end{minipage} \\
 \end{tabular}
 
-  %% \begin{multicols*}{2}
-  %%   \section{Introduction}
-  %%     \blindtext[1]
+  %% - Elm
+  %% - JavaScript
+  %% - Haskell
+  %% - PureScript
+  %% - OCaml
+  %% - Ruby
+  %% - Python
+  %% - Nix/NixOS
+  %% - SQL
+  %% - Go
+  %% - Rust
+  %% - C
 
-  %%   \subsection{Languages}
-  %%   Elm, Haskell, JavaScript, Ruby
-  %% \end{multicols*}
+\begin{minipage}[left=-1cm]{1.2\textwidth}
+  \hskip -0.7cm%
+  \begin{tikzpicture}
+  \fill[black] (0.2,2) circle (0.4cm) node []{\color{white}C};
+  \fill[ProcessBlue] (1.7,2) circle (0.8cm) node []{\color{white}Haskell};
+  \fill[ProcessBlue] (3.8,2) circle (1cm) node[]{\color{white}Elm};
+  \fill[black] (6,2) circle (0.9cm) node[]{\color{white}JavaScript};
+  \fill[ProcessBlue] (8.1,2) circle (0.85cm) node[]{\color{white}Nix};
+  \fill[black] (9.8,2) circle (0.65cm) node[]{\color{white}Ruby};
+  \fill[black] (11,2) circle (0.4cm) node[]{\color{white}SQL};
+  \fill[black] (12.1,2) circle (0.5cm) node[]{\color{white}Go};
+  \fill[ProcessBlue] (13.6,2) circle (0.7cm) node[]{\small\color{white}PureScript};
+  \fill[black] (15,2) circle (0.4cm) node[]{\tiny\color{white}Python};
+  \fill[ProcessBlue] (16.2,2) circle (0.55cm) node[]{\color{white}Rust};
+  \fill[ProcessBlue] (17.5,2) circle (0.55cm) node[]{\small\color{white}OCaml};
+  \end{tikzpicture}
+\end{minipage}
+
+\section{Experience}
+
+\subsection{GlobalWebIndex}
+GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+working 100\& remotly.
+
+\subsubsection{Team Lead}
+GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+working 100\& remotly.
+
+\subsubsection{Fullstack Developer}
+GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+working 100\& remotly.
+
+\subsection{Startup Bootstraping Fullstack dev}
+GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
+working 100\& remotly.
+
+\subsection{Madeo Interactive}
+
+\subsubsection{Front-End Lead}
+
+\subsubsection{Front-End Developer}
+
+\subsection{Freelance Web Development}
+
+\subsection{WebCzech}
+
+\section{Education}
+
+\subsection{Gymnazium Zidlochovice}
+
+\section{Additional Skils}
+
+\subsection{Languages}
+
+%% \subsection{Hobbies}
+
+\subsection{Notable Projects}
 
 \end{document}
