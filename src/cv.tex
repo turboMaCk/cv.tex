@@ -13,6 +13,7 @@
 \usepackage{tabularx}
 \usepackage{tikz}
 \usepackage{longtable}
+\usepackage{enumitem}
 
 % CUSTOM VARs
 
@@ -103,7 +104,7 @@
 % TITLE
 
 \renewcommand{\maketitle}{
-  \begin{tabular}{@{}l l}
+  \begin{tabularx}{\textwidth}{@{}l l}
     \begin{minipage}[t]{0.65\textwidth}
       {\Huge \textbf {\MakeUppercase{\firstname}}}
 
@@ -134,7 +135,7 @@
       }
       \end{itemize}
     \end{minipage}
-  \end{tabular}
+  \end{tabularx}
 
   \vspace{0.5cm}
 }
@@ -229,9 +230,13 @@
 \section{Experience}
 
 \begin{longtable}{@{}ll@{}}
-  \entry{01/2017 -- 11/2019}{Team Lead: The Platform (front-end)}{GlobalWebIndex, London GB}{
-    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-    working 100\& remotly.
+  \entry{01/2017 -- 11/2019}{Team Lead: The Platform (front-end)}{GlobalWebIndex, London GB/remote}{
+    Tasked with overseeing developement with the main user facing company's product my main
+    responsibilities was being part of technological and architectonical decisions as well
+    as with hiring process to my team and other teams requring similar expertice.
+    I've lead the iterative process of addaption of Elm programming language and set several
+    standards which where later adapt by whole company. Along my main responsibilities
+    I've also lead development and deployment of several srvices in Go lang, Node.js and Ruby.
 
     \vspace{0.5em}
 
@@ -245,9 +250,12 @@
     \bfseries node.js
   }
 
-  \entry{06/2015 -- 12/2016}{Senior FullStack Developer: The Core}{GlobalWebIndex, London GB}{
-    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-    working 100\& remotly.
+  \entry{06/2015 -- 12/2016}{Senior FullStack Developer: The Core}{GlobalWebIndex, London GB/remote}{
+    GlobalWebIndex is London based market research company which main business is providing
+    data originating from globaly runned surveys to its clients which includes big names like Microsoft,
+    Google, Twitter, Snapchat and many others. I was hired mainly due to my Ember.js and d3.js knowledge
+    to join their small remote teams of enginners. I was 7th fulltime programmer in the project and member of
+    4 member team responsible for customer facing SPA application and web api services.
 
     \vspace{0.5em}
 
@@ -258,9 +266,11 @@
     \bfseries node.js
   }
 
-  \entry{12/2014 -- 05/2015}{Web Developer Developer}{Self Employed, Prague CZ}{
-    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-    working 100\& remotly.
+  \entry{12/2014 -- 05/2015}{FullStack Web Developer}{Self Employed, Prague CZ}{
+    As a independent developer I was helping with bootstraping and prototyping startup ideas.
+    I was mainly focus on web APIs (REST) in Ruby and Node.js and web based admin interfaces (Ember.js) while
+    most of the user facing interface was done as a native mobail application for iOS and Android.
+    Ocasionally I was helping with Android applications.
 
     \vspace{0.5em}
 
@@ -271,10 +281,11 @@
     \bfseries node.js
   }
 
-  \entry{04/2014 -- 11/2014}{Lead Front-End Developer}{Madeo Interactive, Zlin CZ}{
-    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-    working 100\& remotly.
-
+  \entry{11/2013 -- 11/2014}{Senior Front End Developer}{Madeo Interactive, Zlin CZ}{
+    Madeo Interactive is award winnign agency based in Zlin. My main responsibility was
+    working closely with clients and design team in implementing websites and web applications.
+    I also had a chance to work on SPA applications using Ember.js and Backbone.js and ocasionally
+    also with RubyOnRails and PHP backends.
     \vspace{0.5em}
 
     \bfseries JavaScript
@@ -282,27 +293,13 @@
     \bfseries CoffeeScript
     \bfseries PHP
     \bfseries Ember.js
-    \bfseries d3.js
-    \bfseries JQuery
-  }
-
-  \entry{11/2013 -- 03/2014}{Senior Front End Developer}{Madeo Interactive, Zlin CZ}{
-    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-    working 100\& remotly.
-
-    \vspace{0.5em}
-
-    \bfseries JavaScript
-    \bfseries Ruby
-    \bfseries CoffeeScript
-    \bfseries PHP
-    \bfseries Ember.js
+    \bfseries Backbone.js
     \bfseries JQuery
   }
 
   \entry{03/2012 -- 10/2014}{Independet FullStack WebDeveloper / Designer}{Self Employed, Brno CZ}{
-    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-    working 100\& remotly.
+    Working as a freelance web developer and designer I was covering realization of many projects for my clients.
+    In wast majoryty of cases those were PHP web applications based on open source technologies like WordPress.
 
     \vspace{0.5em}
 
@@ -312,8 +309,9 @@
   }
 
   \entry{06/2012 -- 02/2012}{Senior WebDesigner WebDeveloper}{WebCzech, Brno CZ}{
-    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-    working 100\& remotly.
+    After proving my abilities I was assigned more responsibilities including
+    mainly work on e-commerce systems. Still being responsible for both design
+    as well as implementation part of projects based mostly on inhouse solutions.
 
     \vspace{0.5em}
 
@@ -324,8 +322,10 @@
   }
 
   \entry{11/2010 -- 05/2011}{Junior WebDesigner / WebDeveloper}{WebCzech, Brno CZ}{
-    GlobalWebIndex is London based company I joined in the middle of 2015 at the time as 5th fulltime developer
-    working 100\& remotly.
+    WebCzech is a small webdesign and ecomerce studio from Brno. It was a first place
+    where I send my resume to endedup accepting the offer. I was hired thanks to my prior
+    knowledge of web technologies and Adobe Flash. My responsibilities included designing and
+    realization of small to mid sized websites for clients.
 
     \vspace{0.5em}
 
@@ -340,12 +340,36 @@
 
 \subsection{Gymnazium Zidlochovice}
 
+After 5th grade I was accepted to 8th year highschool program for talented kids focused on languages and science.
+Even though the program is mainly preparation for university, after graduation I've decided enter
+the industry. During my studies I've spent a lot of time learning about Linux, programming small
+games, working on year project invoving computer physics simulations and implemented school's
+official website for geography classes.
+
 \section{Additional Skils}
 
-\subsection{Languages}
+\vspace{-0.3cm}
+\begin{tabular}{@{}ll}
+  \begin{minipage}[t]{0.5\textwidth}
+      \subsection{Languages}
+      \begin{itemize}[leftmargin=0.3cm]
 
-%% \subsection{Hobbies}
+        \item[-] \textbf{English}: Daily professional communication
+        \item[-] \textbf{Czech}: First language
+        \item[-] \textbf{French}: Embarrassingly bad now.
 
-\subsection{Notable Projects}
+      \end{itemize}
+  \end{minipage}
+  & \begin{minipage}[t]{0.5\textwidth}
+      \subsection{Open Source}
+      \begin{itemize}[leftmargin=0.3cm]
+
+        \item[-] \textbf{NixOS}: Maintainer of several packages
+        \item[-] \textbf{Elm}: lazy-tree-with-zipper, glue and other libraries
+        \item[-] \textbf{Planning Game}: Realtime WebApp (Haskell + Elm)
+
+      \end{itemize}
+  \end{minipage} \\
+\end{tabular}
 
 \end{document}
