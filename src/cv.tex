@@ -3,7 +3,6 @@
 % PACKAGES
 
 \usepackage{titlesec}
-\usepackage{multicol}
 \usepackage{fontspec}
 \usepackage{blindtext}
 \usepackage{titling}
@@ -14,6 +13,7 @@
 \usepackage{tikz}
 \usepackage{longtable}
 \usepackage{enumitem}
+\usepackage{fancyhdr}
 
 % CUSTOM VARs
 
@@ -77,6 +77,12 @@
 % set tabular column separation
 \setlength\columnsep{20pt}
 \setlength{\tabcolsep}{0pt}
+
+% enable fancyhdr (for footer)
+\pagestyle{fancy}
+
+% disable header
+\renewcommand{\headrulewidth}{0pt}
 
 % STYLES
 
@@ -158,6 +164,15 @@
 
 \begin{document}
 \title{Web App Developer}
+\lhead{}
+\rhead{}
+\cfoot{\small\color{gray}Build with XeLaTeX; get source on
+  \href{https://github.com/turboMaCk/cv.tex}{github.com/turboMaCk/cv.tex}
+}
+
+% Do not show footer on first page
+\thispagestyle{empty}
+
 \maketitle
 
 \section{Introduction}
@@ -230,7 +245,7 @@
 \section{Experience}
 
 \begin{longtable}{@{}ll@{}}
-  \entry{01/2017 -- 11/2019}{Team Lead: The Platform (front-end)}{GlobalWebIndex, London GB/remote}{
+  \entry{01/2017 -- 11/2019}{Team Lead: The Platform (front-end)}{GlobalWebIndex, London GB / remote}{
     Tasked with overseeing developement with the main user facing company's product my main
     responsibilities was being part of technological and architectonical decisions as well
     as with hiring process to my team and other teams requring similar expertice.
@@ -250,7 +265,7 @@
     \bfseries node.js
   }
 
-  \entry{06/2015 -- 12/2016}{Senior FullStack Developer: The Core}{GlobalWebIndex, London GB/remote}{
+  \entry{06/2015 -- 12/2016}{Senior FullStack Developer: The Core}{GlobalWebIndex, London GB / remote}{
     GlobalWebIndex is London based market research company which main business is providing
     data originating from globaly runned surveys to its clients which includes big names like Microsoft,
     Google, Twitter, Snapchat and many others. I was hired mainly due to my Ember.js and d3.js knowledge
@@ -346,30 +361,25 @@ the industry. During my studies I've spent a lot of time learning about Linux, p
 games, working on year project invoving computer physics simulations and implemented school's
 official website for geography classes.
 
+\vspace{0.3cm}
 \section{Additional Skils}
-
 \vspace{-0.3cm}
+
 \begin{tabular}{@{}ll}
   \begin{minipage}[t]{0.5\textwidth}
       \subsection{Languages}
       \begin{itemize}[leftmargin=0.3cm]
-
         \item[-] \textbf{English}: Daily professional communication
         \item[-] \textbf{Czech}: First language
         \item[-] \textbf{French}: Embarrassingly bad now.
-
       \end{itemize}
   \end{minipage}
   & \begin{minipage}[t]{0.5\textwidth}
-      \subsection{Open Source}
+      \subsection{Hobbies}
       \begin{itemize}[leftmargin=0.3cm]
-
-        \item[-] \textbf{NixOS}: Maintainer of several packages
-        \item[-] \textbf{Elm}: lazy-tree-with-zipper, glue and other libraries
-        \item[-] \textbf{Planning Game}: Realtime WebApp (Haskell + Elm)
-
+        \item[-] \textbf{OpenSource}: I'm NixOS maitainer, write libraries and contribute to projects
+        \item[-] \textbf{Music}: I like music, play guitar and have played in several bands
       \end{itemize}
   \end{minipage} \\
 \end{tabular}
-
 \end{document}
