@@ -27,6 +27,7 @@
 \usepackage{longtable}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
+\usepackage{multido}
 
 % CUSTOM VARs
 
@@ -173,10 +174,29 @@
 		#4 % Entry description text
 	}\\\\}
 
+\newcommand{\skill}[3]{ % First argument is label, second score, third style
+  \colorbox{#3}{\textcolor{white}{#1}} &
+  \vspace{0.2cm}
+  \textcolor{#3}{
+    \newcount \n
+    \n #2
+    \multido{\i=0+10}{5}{%
+      \ifnum\n<10
+        \ifnum\n>0 \faStarHalf \else \faStarEmpty \fi
+      \else
+        \faStarFull
+      \fi
+      \advance\n -10
+    }
+  } \\
+}
+
 % DOCUMENT
 
 \begin{document}
 \title{Web App Developer}
+
+% Define footer and header
 \lhead{}
 \rhead{}
 \cfoot{\small\color{gray}Build with \LaTeX; source at
@@ -190,45 +210,38 @@
 
 \section{Introduction}
 
-\begin{tabular}{@{}l@{\hskip 10pt}r}
-    \begin{minipage}[l]{0.6\textwidth}
-      \blindtext
+\begin{tabular}{@{}l@{\hskip 20pt}r}
+    \begin{minipage}[l]{0.58\textwidth}
+      I'm web developer with near 10 years professional experience
+      with web development and design, and even longer programming backgound.
+      During my carrer I've worked on design, architecture and implementation
+      of various sucessfull and less sucessfull projects and had an oportunity
+      to lead teams and influence processes and technlogy choices.
+
+      \vspace{0.5em}
+      While my background is not academical, over time I build high appreciation for
+      theoretical parts of computer science and was able to utilize traditionaly
+      academic ideas in practice. In particular I've build intereseted in
+      statically typed pure functional programming, language theory and type theory.
+
+      \vspace{0.5em}
+      For past over 4 years I've lead fully distributed team of developers applying
+      purely functional programming to build user interface application used by thousands
+      of custommers around the world.
+
     \end{minipage}
     &
     \begin{minipage}[r]{0.39\textwidth}
       \setlength\tabcolsep{5pt}
       \begin{tabularx}{\textwidth}{Xr}
-          \colorbox{ProcessBlue}{\textcolor{white}{Functional Programming}} &
-          \vspace{0.2cm}
-          \textcolor{ProcessBlue}{\faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty} \\
-
-          \colorbox{ProcessBlue}{\textcolor{white}{Web Technologies}} &
-          \vspace{0.2cm}
-          \textcolor{ProcessBlue}{\faStarFull \faStarFull \faStarFull \faStarFull \faStarEmpty} \\
-
-          \colorbox{black}{\textcolor{white}{Web Services}} &
-          \vspace{0.2cm}
-          \faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty \\
-
-          \colorbox{black}{\textcolor{white}{Devops}} &
-          \vspace{0.2cm}
-          \faStarFull \faStarFull \faStarHalf \faStarEmpty \faStarEmpty \\
-
-          \colorbox{black}{\textcolor{white}{Data Visualization}} &
-          \vspace{0.2cm}
-          \faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty \\
-
-          \colorbox{black}{\textcolor{white}{Interface Design}} &
-          \vspace{0.2cm}
-          \faStarFull \faStarFull \faStarHalf \faStarEmpty \faStarEmpty \\
-
-          \colorbox{black}{\textcolor{white}{Automatization}} &
-          \vspace{0.2cm}
-          \faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty \\
-
-          \colorbox{black}{\textcolor{white}{Leadership}} &
-          \vspace{0.2cm}
-          \faStarFull \faStarFull \faStarFull \faStarEmpty \faStarEmpty \\
+        \skill{Web Technologies}{45}{ProcessBlue}
+        \skill{Functional Programming}{40}{ProcessBlue}
+        \skill{Web Services}{35}{ProcessBlue}
+        \skill{Data Vizualtions}{30}{black}
+        \skill{Devops}{25}{black}
+        \skill{InterfaceDesign}{25}{black}
+        \skill{Automatization}{30}{black}
+        \skill{Leadership}{30}{black}
       \end{tabularx}
     \end{minipage} \\
 \end{tabular}
@@ -390,7 +403,7 @@ official website for geography classes.
   & \begin{minipage}[t]{0.5\textwidth}
       \subsection{Hobbies}
       \begin{itemize}[leftmargin=0.3cm]
-        \item[-] \textbf{OpenSource}: I'm NixOS maitainer, write libraries and contribute to other open source projects
+        \item[-] \textbf{OpenSource}: I'm NixOS maitainer, write libraries and contribute to open source projects
         \item[-] \textbf{Music}: I like music, play guitar and have played in several bands
       \end{itemize}
   \end{minipage} \\
