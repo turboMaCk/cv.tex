@@ -1,0 +1,17 @@
+name: Build and publish LaTeX document
+on:
+  push:
+    tags: ['*']
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@master
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "cv.pdf"
+          body: "Automatically published using action"
+          token: ${{ secrets.GITHUB_TOKEN }}
