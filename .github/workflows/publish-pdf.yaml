@@ -1,7 +1,7 @@
 name: Build and publish LaTeX document
-on: [push]
-  tags:
-    - '*'
+on:
+  push:
+    tags: ['*']
 jobs:
   build_latex:
     runs-on: ubuntu-latest
